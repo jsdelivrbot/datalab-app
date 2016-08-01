@@ -1,0 +1,57 @@
+$icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+/*!
+ * Bootstrap v3.3.5 (http://getbootstrap.com)
+ * Copyright 2011-2015 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
+
+// Defaults
+@import "defaults/colors";
+
+// Elements
+@import "elements/type";
+@import "elements/list";
+@import "elements/forms";
+
+// Components
+@import "components/map-container";
+
+// bower:scss
+@import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+// endbower
+
+body {
+  font-family: "GothamRnd";
+  //font-weight: bold;
+}
+
+section {
+  margin-bottom: 70px;
+}
+
+.main-label {
+  margin-left: 15px;
+}
+
+@font-face {
+  font-family: GothamRnd;
+  src: url("../fonts/GothamRnd-Bold.otf") format("opentype");
+  font-weight: bolder;
+}
+
+@font-face {
+  font-family: GothamRnd;
+  src: url("../fonts/GothamRnd-Medium.otf") format("opentype");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: GothamRnd;
+  src: url("../fonts/GothamRnd-Book.otf") format("opentype");
+  font-weight: normal;
+}
+
+.container-fluid  {
+  padding-left: 0px;
+  padding-right: 0px;
+}

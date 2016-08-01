@@ -1,0 +1,32 @@
+<div class="container-fluid">
+	<div class="row-height">
+	  <div class="col-sm-7 map-selector">
+			<div class="col-sm-2"></div>
+			<div class="col-sm-10">
+				<select class="form-control selector-map" ng-init="main.distanceSelected = main.distanceOptions[0]" ng-model="main.distanceSelected" ng-options="option.label for option in main.distanceOptions" ng-change="main.drawGraph()">
+					<option>Calculo de Ruta</option>
+				</select>
+				<span>Seleccione un tipo de ruta. De click en el mapa y apareceran los refugios. Puede ver más información al interactuar con ellos. (De un par de clicks y espere un poco).</span>
+			</div>
+			<div class="col-sm-1"></div>
+		</div>
+	</div>
+	<div class="row-height">
+		<div class="col-sm-11 map-container" ng-controller="MapCtrl as vm">
+			<ng-map default-style="false" zoom="10" center="[21.5,-104.9]" on-click="getpos($event)">
+				<marker ng-repeat="o in positions"
+					position="{{o}}" on-dragend="getpos($event)" title="Origen">
+				</marker>
+				<marker ng-repeat="p in points" position="{{p.geopoint.coordinates[1]}},{{p.geopoint.coordinates[0]}}" name="{{p.refugio}}" on-click="showDetails(event, p)"></marker>
+					<info-window id="details">
+						<div>
+							<h4>{{point_data.refugio}}</h4>
+							{{point_data.distance}} kilometros de distancia
+						</div>
+					</info-window>
+					<shape name="polyline" path="{{path1}}" geodesic="true" stroke-color="#1C6BA0" stroke-opacity="1.0" stroke-weight="3"></shape>
+					<shape name="polyline" path="{{path2}}" geodesic="true" stroke-color="#98fb98" stroke-opacity="1.0" stroke-weight="3"></shape>
+					<shape name="polyline" path="{{path3}}" geodesic="true" stroke-color="#ff0000" stroke-opacity="1.0" stroke-weight="3"></shape>
+			</ng-map>
+		</div>
+</div>
